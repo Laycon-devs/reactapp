@@ -1,0 +1,13 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Roboto Slab', serif,'Playfair Display';
+}
+.nav-link:hover{
+    color: yellowgreen;
+    /* #FFC107 */
+}
+/* .random-border {
+    border-right: var(--random-color);
+} */
