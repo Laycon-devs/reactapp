@@ -4,9 +4,6 @@ import { Routes, Route } from "react-router-dom";
 import Login from "./Login";
 import Dashboard from "./dashboard";
 import './style.css';
-// import { firestore } from "./firebase";
-// import { useCallback } from "react";
-
 
 function App() {
   return (

@@ -2,9 +2,10 @@ import { Link } from "react-router-dom";
 import Search from "./search";
 import ServicesList from "./servicesList";
 import ServicesInput from "./servicesInput";
+import ViewService from "./viewService";
 import { firestore } from "./firebase";
 import { useEffect, useState } from "react";
-import { collection, getDocs } from "firebase/firestore";
+import { collection, getDocs, query, where } from "firebase/firestore";
 
 function dashboard() {
   const handleLogout = () => {
@@ -15,9 +16,10 @@ function dashboard() {
 
   const [loading, setLoading] = useState(true);
   const [jobs, setJobs] = useState([]);
-
+  const [viewJob, setViewJob] = useState({})
+  
   const JobscollectionRef = collection(firestore, "jobs");
-
+  
   const fetchJobs = async () => {
     try {
       const data = await getDocs(JobscollectionRef);
@@ -31,16 +33,33 @@ function dashboard() {
     }
     setLoading(false);
   };
-
+  
+  const fetchJobsCustom = async (jobSearch) => {
+    try {
+      const q = query(
+        JobscollectionRef,
+        where("location", "==", jobSearch.location),
+        where("skills", "==", jobSearch.skills)
+      );
+  
+      const data = await getDocs(q);
+  
+      const filteredData = data.docs.map((doc) => ({
+        ...doc.data(),
+        id: doc.id,
+      }));
+  
+      setJobs(filteredData);
+    } catch (err) {
+      console.error(err);
+    }
+    setLoading(false);
+  };
+  
   useEffect(() => {
     fetchJobs();
   }, []);
-
-  // const postJob = async (jobDetails) => {
-  //   await firestore.collection("jobs").add({ 
-  //     ...jobDetails
-  //   });
-  // };
+  
 
   return (
     <div>
@@ -55,9 +74,9 @@ function dashboard() {
               alt="allservices"
             />
           </a>
-          <div className="text-center fw-bold text-warning fs-1 d-lg-block d-md-block d-none">
+          <a className="text-center text-decoration-none fw-bold text-warning fs-1 d-lg-block d-md-block d-none" href="">
             Service Provider
-          </div>
+          </a>
           <button
             className="navbar-toggler d-block"
             type="button"
@@ -81,7 +100,7 @@ function dashboard() {
       >
         <div className="offcanvas-header text-center">
           <h5 className="offcanvas-title fw-bold" id="offcanvasNavbarLabel">
-            My Account
+            Profile
           </h5>
           <button
             type="button"
@@ -122,7 +141,7 @@ function dashboard() {
           Logout <i className="bi bi-box-arrow-right fs-5 text-warning"></i>
         </Link>
       </div>
-      <Search />
+      <Search fetchJobsCustom={fetchJobsCustom} />
       {loading ? (
         <div className="d-flex justify-content-center m-5">
           <div class="spinner-border text-success" role="status">
@@ -130,9 +149,10 @@ function dashboard() {
           </div>
         </div>
       ) : (
-        jobs.map((job) => <ServicesList key={job.id} {...job} />)
+        jobs.map((job) => <ServicesList open={() => setViewJob(job)} key={job.id} {...job} />)
       )}
       <ServicesInput />
+      <ViewService job={viewJob} closeModal={() => setViewJob({})} />
     </div>
   );
 }

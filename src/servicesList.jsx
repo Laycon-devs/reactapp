@@ -15,7 +15,17 @@ function servicesList(props) {
             <i class="pe-2 fs-4 bi bi-geo-alt-fill"></i>
             {props.location}
           </div>
-          <div className="col-sm-3 btn btn-warning fs-5 fw-normal">Request</div>
+          <div className="col-sm-3">
+          <button
+              onClick={props.open}
+              type="button"
+              class="btn btn-warning rounded-3 px-5 fw-bold"
+              data-bs-toggle="modal"
+              data-bs-target="#staticBackdrop2"
+            >
+              Request
+            </button>
+          </div>
         </div>
       </div>
     </div>

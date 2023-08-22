@@ -32,11 +32,6 @@ function navbar() {
                   Home
                 </Link>
               </li>
-              <li className="nav-item px-lg-4">
-                <a className="nav-link" href="#">
-                  Request
-                </a>
-              </li>
             </ul>
             <div className="d-lg-flex d-none d-md-none">
               <Link to={"/login"} className="btn btn-outline-warning rounded-5 px-5" type="submit">
