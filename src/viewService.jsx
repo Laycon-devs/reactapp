@@ -30,17 +30,17 @@ function viewService(props) {
               />
             </div>
             <div className="modal-body p-5">
-              <div class="card-flush text-center">
-                <div class="card-header">{props.job.yourName}</div>
-                <div class="card-body">
-                  <h5 class="card-title">{props.job.skills}</h5>
-                  <p class="card-text">{props.job.descrip}</p>
+              <div className="card-flush text-center">
+                <div className="card-header">{props.job.yourName}</div>
+                <div className="card-body">
+                  <h5 className="card-title">{props.job.skills}</h5>
+                  <p className="card-text">{props.job.descrip}</p>
                   <div className="d-flex justify-content-center align-items-center">
                     <a
                       href={`https://wa.me/+234${props.job.whatsappLink}`}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="btn btn-success me-3"
+                      className="btn btn-success me-3"
                     >
                       <i className="bi bi-whatsapp pe-2 fs-4"></i>Contact via WhatsApp
                     </a>
@@ -51,7 +51,7 @@ function viewService(props) {
                     </a>
                   </div>
                 </div>
-                <div class="card-footer text-body-success fs-5 fw-bold">
+                <div className="card-footer text-body-success fs-5 fw-bold">
                   Phone Number: 0{props.job.whatsappLink}
                 </div>
               </div>
@@ -59,7 +59,7 @@ function viewService(props) {
             <div className="modal-footer">
               <button
                 type="button"
-                class="btn btn-secondary"
+                className="btn btn-secondary"
                 data-bs-dismiss="modal"
               >
                 Close

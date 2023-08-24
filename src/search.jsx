@@ -186,8 +186,8 @@ function search(props) {
               >
                 {loading ? (
                   <div className="d-flex justify-content-center">
-                    <div class="spinner-border text-success" role="status">
-                      <span class="visually-hidden">Loading...</span>
+                    <div className="spinner-border text-success" role="status">
+                      <span className="visually-hidden">Loading...</span>
                     </div>
                   </div>
                 ) : (

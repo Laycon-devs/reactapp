@@ -125,7 +125,7 @@ function dashboard() {
           <div className="d-flex justify-content-center align-items-center">
             <button
               type="button"
-              class="btn btn-success rounded-5 me-2"
+              className="btn btn-success rounded-5 me-2"
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop"
             >
@@ -144,8 +144,8 @@ function dashboard() {
       <Search fetchJobsCustom={fetchJobsCustom} />
       {loading ? (
         <div className="d-flex justify-content-center m-5">
-          <div class="spinner-border text-success" role="status">
-            <span class="visually-hidden">Loading...</span>
+          <div className="spinner-border text-success" role="status">
+            <span className="visually-hidden">Loading...</span>
           </div>
         </div>
       ) : (

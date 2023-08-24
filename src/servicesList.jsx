@@ -12,14 +12,14 @@ function servicesList(props) {
             {props.skills}
           </div>
           <div className="col-sm-3 fs-5 fw-normal mb-4">
-            <i class="pe-2 fs-4 bi bi-geo-alt-fill"></i>
+            <i className="pe-2 fs-4 bi bi-geo-alt-fill"></i>
             {props.location}
           </div>
           <div className="col-sm-3">
           <button
               onClick={props.open}
               type="button"
-              class="btn btn-warning rounded-3 px-5 fw-bold"
+              className="btn btn-warning rounded-3 px-5 fw-bold"
               data-bs-toggle="modal"
               data-bs-target="#staticBackdrop2"
             >

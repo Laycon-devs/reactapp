@@ -23,7 +23,6 @@ function servicesInput() {
         whatsappLink: newWhatsappLink,
       });
 
-      fetchJobs();
     } catch (err) {
       console.error(err);
     }
@@ -218,7 +217,7 @@ function servicesInput() {
                   />
                 </div>
                 <div className="col input-group">
-                  <span class="input-group-text" id="inputGroup-sizing-sm">
+                  <span className="input-group-text" id="inputGroup-sizing-sm">
                     +234
                   </span>
                   <input
@@ -226,6 +225,7 @@ function servicesInput() {
                     type="text"
                     className="form-control p-3"
                     placeholder="WhatsApp"
+                    maxLength={10}
                   />
                 </div>
                 <div className="col">
@@ -233,17 +233,7 @@ function servicesInput() {
                     onChange={(e) => setNewDescrip(e.target.value)}
                     type="text"
                     className="form-control p-3"
-                    placeholder="Description"
-                  />
-                </div>
-                <div className="col mx-auto mt-5">
-                  <label htmlFor="formFile" className="form-label">
-                    Upload Your recent Work
-                  </label>
-                  <input
-                    className="form-control p-3"
-                    type="file"
-                    id="formFile"
+                    placeholder="Add Description and Your Address"
                   />
                 </div>
               </div>
