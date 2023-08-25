@@ -245,8 +245,8 @@ function servicesInput() {
                 data-bs-dismiss="modal"
                 onClick={() => {
                   onSubmitNewJob();
-                  alert("Posted successfully. Refresh to view.");
                 }}
+                data-bs-toggle="modal" data-bs-target="#exampleModalsuccessmsg"
               >
                 Post Now
               </button>
@@ -254,6 +254,19 @@ function servicesInput() {
           </div>
         </div>
       </div>
+      <div class="modal fade" id="exampleModalsuccessmsg" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header border-0">
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body text-center">
+        <img className="img-fluid w-50" src="./img/checked.webp" alt="posted successful" />
+        <h3 className="text-success fw-bold">Service Posted Successfully</h3>
+      </div>
+    </div>
+  </div>
+</div>
     </div>
   );
 }
